@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>윤승원 이력서</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+      font-size: 10pt;
+      color: #1e293b;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 16mm 18mm;
+      background: #fff;
+    }
+
+    /* ── 헤더 ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #1e293b;
+      margin-bottom: 18px;
+    }
+    .header-left h1 {
+      font-size: 26pt;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .header-left .title {
+      font-size: 11pt;
+      font-weight: 500;
+      color: #4f46e5;
+      margin-top: 3px;
+    }
+    .header-right {
+      text-align: right;
+      font-size: 9pt;
+      color: #475569;
+      line-height: 1.8;
+    }
+    .header-right a { color: #475569; text-decoration: none; }
+
+    /* ── 요약 ── */
+    .summary {
+      background: #f8fafc;
+      border-left: 3px solid #4f46e5;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      font-size: 9.5pt;
+      color: #334155;
+      line-height: 1.7;
+    }
+
+    /* ── 섹션 ── */
+    .section { margin-bottom: 20px; }
+    .section-title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #4f46e5;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    /* ── 경력 ── */
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .exp-company {
+      font-size: 11pt;
+      font-weight: 700;
+    }
+    .exp-meta {
+      font-size: 8.5pt;
+      color: #64748b;
+    }
+    .exp-team {
+      font-size: 9pt;
+      color: #4f46e5;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .exp-desc {
+      font-size: 9pt;
+      color: #475569;
+      margin-bottom: 8px;
+    }
+    .exp-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .exp-col-title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 4px;
+    }
+    ul.bullet {
+      padding-left: 14px;
+      font-size: 8.5pt;
+      color: #334155;
+    }
+    ul.bullet li { margin-bottom: 2px; }
+    ul.achievement li::marker { content: "✦ "; color: #4f46e5; }
+
+    /* ── 프로젝트 ── */
+    .project { margin-bottom: 16px; }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+    .project-name {
+      font-size: 10.5pt;
+      font-weight: 700;
+    }
+    .project-sub {
+      font-size: 9pt;
+      color: #475569;
+      margin-bottom: 4px;
+    }
+    .project-period {
+      font-size: 8.5pt;
+      color: #64748b;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+    .project-overview {
+      font-size: 9pt;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .project-block-title {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #4f46e5;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    ul.compact {
+      padding-left: 12px;
+      font-size: 8.5pt;
+      color: #334155;
+    }
+    ul.compact li { margin-bottom: 1.5px; }
+
+    .trouble-item {
+      margin-bottom: 4px;
+      font-size: 8.5pt;
+    }
+    .trouble-row {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 1px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 7pt;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .badge-p { background: #fee2e2; color: #991b1b; }
+    .badge-s { background: #dcfce7; color: #166534; }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 5px;
+    }
+    .tech-tag {
+      font-size: 7.5pt;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 1px 7px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* ── 사이드 프로젝트 ── */
+    .side-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .side-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+    .side-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+    .side-name {
+      font-size: 9.5pt;
+      font-weight: 700;
+    }
+    .side-period {
+      font-size: 8pt;
+      color: #64748b;
+    }
+    .side-sub {
+      font-size: 8.5pt;
+      color: #4f46e5;
+      margin-bottom: 4px;
+    }
+    .side-overview {
+      font-size: 8.5pt;
+      color: #475569;
+      margin-bottom: 5px;
+    }
+    .side-ach {
+      font-size: 8pt;
+      color: #166534;
+      background: #f0fdf4;
+      border-left: 2px solid #22c55e;
+      padding: 3px 8px;
+      margin-bottom: 5px;
+      border-radius: 0 3px 3px 0;
+    }
+
+    /* ── 스킬 ── */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+    }
+    .skills-table td {
+      padding: 5px 10px;
+      border: 1px solid #e2e8f0;
+      vertical-align: middle;
+    }
+    .skills-table td:first-child {
+      font-weight: 700;
+      color: #4f46e5;
+      background: #f8fafc;
+      white-space: nowrap;
+      width: 90px;
+    }
+
+    /* 통계 */
+    .stats {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 8px 4px;
+    }
+    .stat-num {
+      font-size: 14pt;
+      font-weight: 700;
+      color: #4f46e5;
+      display: block;
+    }
+    .stat-label {
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+
+    /* 구분선 */
+    .divider {
+      border: none;
+      border-top: 1px solid #e2e8f0;
+      margin: 14px 0;
+    }
+
+    /* 태그 Work/Side */
+    .tag {
+      display: inline-block;
+      font-size: 7pt;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-right: 4px;
+    }
+    .tag-work { background: #ede9fe; color: #5b21b6; }
+    .tag-side { background: #fef3c7; color: #92400e; }
+
+    /* ── 인쇄 ── */
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .page { width: 100%; padding: 12mm 15mm; }
+      .page-break { page-break-before: always; }
+    }
+    @page { size: A4; margin: 0; }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header-left">
+      <h1>윤승원</h1>
+      <div class="title">AI Engineer · AI Research &amp; Development</div>
+    </div>
+    <div class="header-right">
+      📧 <a href="mailto:ysw4926@naver.com">ysw4926@naver.com</a><br>
+      📞 010-4926-8567<br>
+      🔗 seungwon.dev
+    </div>
+  </div>
+
+  <!-- 요약 -->
+  <div class="summary">
+    티쓰리엔터테인먼트 AI연구개발팀에서 최신 AI 기술을 리서치하고 사내 업무 도구를 직접 설계·구현해온 3년차 AI 개발자입니다.
+    VLM 기반 멀티모달 결함 탐지 파이프라인, AI Midi Generator, 오픈소스 음성 AI 서빙 등 반복·비효율 업무를 분석하여
+    End-to-End 자동화 워크플로우로 재설계하는 것을 지향합니다.
+  </div>
+
+  <!-- 통계 -->
+  <div class="stats">
+    <div class="stat-item"><span class="stat-num">2+</span><span class="stat-label">Years Exp</span></div>
+    <div class="stat-item"><span class="stat-num">4</span><span class="stat-label">사내 서비스</span></div>
+    <div class="stat-item"><span class="stat-num">70%</span><span class="stat-label">업무 시간 단축</span></div>
+    <div class="stat-item"><span class="stat-num">A100</span><span class="stat-label">GPU 운영</span></div>
+  </div>
+
+  <!-- 경력 -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+    <div class="exp-header">
+      <span class="exp-company">티쓰리엔터테인먼트</span>
+      <span class="exp-meta">2024.09 - 현재 · 정규직 · 재직중</span>
+    </div>
+    <div class="exp-team">AI연구개발팀</div>
+    <div class="exp-desc">게임 플랫폼 개발 회사(매출액 246억, 사원수 90명)의 AI연구개발팀에서 최신 AI 기술 R&D 및 사내 업무 자동화 도구 개발·운영 담당.</div>
+    <div class="exp-cols">
+      <div>
+        <div class="exp-col-title">주요 업무</div>
+        <ul class="bullet">
+          <li>최신 오픈소스 AI 모델(VLM, TTS, STT, OCR) 리서치·검증·GPU 서버(A100) 서빙</li>
+          <li>VLM 기반 멀티모달 파이프라인 및 딥러닝 채보 자동 생성 시스템 설계·구현</li>
+          <li>C# Windows 자동화 도구, Gradio 웹 GUI, Python REST API 서버 개발 및 사내 배포</li>
+        </ul>
+      </div>
+      <div>
+        <div class="exp-col-title">대표 성과</div>
+        <ul class="bullet achievement">
+          <li>3D 그래픽 검수 자동화로 검수 확인 속도 30% 향상 — 모든 툴 결과를 엑셀 하나에 통합</li>
+          <li>AI 채보 생성 도구 도입으로 사운드팀 작업 시간 70% 단축</li>
+          <li>오픈소스 TTS/STT 서빙으로 성우 섭외 비용 50% 절감</li>
+          <li>Docker·GPU 패스스루 기반 서빙 환경 구축으로 배치 처리 시간 90% 단축</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- 스킬 -->
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <table class="skills-table">
+      <tr><td>Language</td><td>Python, C#</td></tr>
+      <tr><td>AI / ML</td><td>PyTorch, Librosa, Transformers (Hugging Face)</td></tr>
+      <tr><td>AI 모델</td><td>Qwen3 VL 32B, PaddleOCR PP-OCRv5, Whisper, RVC, SparkTTS, Conformer</td></tr>
+      <tr><td>Data</td><td>Pandas, NumPy, Matplotlib</td></tr>
+      <tr><td>Infra</td><td>Docker, Linux (A100/H100 서버 운영)</td></tr>
+      <tr><td>기타</td><td>Win32 API, ClosedXML, REST API 설계·연동, Gradio</td></tr>
+    </table>
+  </div>
+
+</div><!-- /page -->
+
+
+<!-- ── PAGE 2: Work Projects ── -->
+<div class="page page-break">
+
+  <div class="section-title" style="font-size:13pt; margin-bottom:16px;">Work Projects</div>
+
+  <!-- AUGraphics -->
+  <div class="project">
+    <div class="project-header">
+      <div>
+        <span class="tag tag-work">Work</span>
+        <span class="project-name">AUGraphics</span>
+        <span class="project-sub" style="display:inline; margin-left:6px; font-size:9pt;">— 3D 아바타 그래픽 검수 자동화 툴</span>
+      </div>
+      <span class="project-period">2026.02 - 현재</span>
+    </div>
+    <div class="project-overview">게임 아바타 아이템(의상/악세사리)의 3D 그래픽 품질 검수 전 과정을 자동화한 Windows 내부 도구. 수동 검수 프로세스를 End-to-End AI 파이프라인으로 재설계하여 실서비스 운영 중.</div>
+    <div class="project-grid">
+      <div>
+        <div class="project-block-title">Core Features</div>
+        <ul class="compact">
+          <li>압축 파일 자동 탐지·해제 및 CP949/UTF-8 인코딩 자동 판별</li>
+          <li>RGM/DDS 파츠 접두사 불일치 자동 교정(rename)</li>
+          <li>PaddleOCR PP-OCRv5 기반 게임 클라이언트 UI 좌표 동적 인식 및 세션 내 캐싱</li>
+          <li>4각도 캡처 → 원격 GPU 서버 업스케일 → Qwen3 VL 32B 2단계 추론 파이프라인</li>
+          <li>3ds Max MaxScript 배치 자동화(Clean &amp; Fix, RGM Export) 연동</li>
+          <li>검수 결과 엑셀 자동 기록 및 이어하기(Resume) 기능</li>
+        </ul>
+      </div>
+      <div>
+        <div class="project-block-title">Troubleshooting</div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>게임 클라이언트 UI 좌표가 해상도에 따라 달라져 하드코딩 좌표가 잦은 수정 필요</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>PaddleOCR 기반 텍스트 인식으로 UI 요소를 동적 탐지, 세션 내 캐싱으로 오버헤드 제거</span></div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>고정 3.5초 대기로 60폴더 기준 전체 처리 시간 주 병목</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>클릭 전후 아바타 영역 픽셀 비교 폴링으로 전환 — 정상 케이스 3.5초 → ~200ms</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="project-block-title">Achievements</div>
+    <ul class="compact achievement" style="margin-bottom:4px;">
+      <li>검수 확인 속도 30% 향상 — 모든 툴 결과를 엑셀 하나에 통합</li>
+      <li>고정 3.5초 대기 → 픽셀 비교 폴링 전환으로 60폴더 기준 처리 시간 15분 단축</li>
+    </ul>
+    <div class="tech-tags">
+      <span class="tech-tag">C# (.NET 8.0)</span><span class="tech-tag">Qwen3 VL 32B</span><span class="tech-tag">PaddleOCR PP-OCRv5</span><span class="tech-tag">Win32 API</span><span class="tech-tag">ClosedXML</span><span class="tech-tag">REST API</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- AUControl -->
+  <div class="project">
+    <div class="project-header">
+      <div>
+        <span class="tag tag-work">Work</span>
+        <span class="project-name">AUControl</span>
+        <span class="project-sub" style="display:inline; margin-left:6px; font-size:9pt;">— 오디션 게임 신규 아이템 QA 자동화 툴</span>
+      </div>
+      <span class="project-period">2025.06 - 2026.02</span>
+    </div>
+    <div class="project-overview">오디션 게임의 신규 아이템 QA 테스트 전 과정을 자동화한 Windows 내부 도구. xlsx QA 리스트를 읽어 패션몰·커플샵에서 NEW 마크 확인, 아이템 구매·착용, 재화 차감, 리소스 무결성 검사를 게임 창에서 직접 자동 실행.</div>
+    <div class="project-grid">
+      <div>
+        <div class="project-block-title">Core Features</div>
+        <ul class="compact">
+          <li>xlsx QA 리스트 파싱 → 패션몰·커플샵 NEW 마크 확인·구매·착용·재화 차감 자동 실행</li>
+          <li>PaddleOCR + OpenCV 템플릿 매칭으로 NEW 마크·버튼·다이얼로그 동적 탐지</li>
+          <li>DXGI Desktop Duplication API(DirectX 11) 기반 화면 캡처로 안티치트 우회</li>
+          <li>SendInput·PostMessage·Interception Driver 3중 입력 방식 자동 전환</li>
+          <li>Python HTTP 서버 기반 PaddleOCR REST API — 서버 기동 시 1회 모델 로드·GPU 상주</li>
+          <li>한글 입력 자동 변환 처리 (두벌식 자모 분해 → 영문 키 시퀀스 매핑)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="project-block-title">Troubleshooting</div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>안티치트가 BitBlt·PrintWindow 등 표준 캡처 API를 후킹해 검은 화면만 반환</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>DXGI Desktop Duplication API(DirectX 11)로 전환해 드라이버 레벨 캡처, 안티치트 우회 성공</span></div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>안티치트가 SendInput 후킹으로 키·마우스 입력을 차단</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>Interception Driver를 최종 수단으로 추가해 3단계 자동 전환 구조 구현</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="project-block-title">Achievements</div>
+    <ul class="compact achievement" style="margin-bottom:4px;">
+      <li>QA 담당자 수동 반복 테스트 전 과정 자동화 — 안티치트 환경 포함</li>
+      <li>OCR 아키텍처를 Python 서버 분리로 전환 — 추론 지연 제거 및 한글 인식률 향상</li>
+    </ul>
+    <div class="tech-tags">
+      <span class="tech-tag">C# (.NET 8.0)</span><span class="tech-tag">Python</span><span class="tech-tag">PaddleOCR PP-OCRv5</span><span class="tech-tag">DirectX 11 / DXGI</span><span class="tech-tag">SharpDX</span><span class="tech-tag">Qwen3 VL 32B</span><span class="tech-tag">OpenCV</span><span class="tech-tag">Interception Driver</span>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+
+<!-- ── PAGE 3: Work Projects 계속 ── -->
+<div class="page page-break">
+
+  <!-- TTS / STT / RVC -->
+  <div class="project">
+    <div class="project-header">
+      <div>
+        <span class="tag tag-work">Work</span>
+        <span class="project-name">TTS / STT / RVC</span>
+        <span class="project-sub" style="display:inline; margin-left:6px; font-size:9pt;">— 오픈소스 음성 AI 모델 서빙</span>
+      </div>
+      <span class="project-period">2025.03 - 2025.06</span>
+    </div>
+    <div class="project-overview">Hugging Face Hub/Spaces/Papers를 활용해 최신 음성 AI 모델을 리서치하고 로컬 GPU 서버(A100)에 직접 서빙. 기획팀 성우 녹음 비용 절감 및 게임 캐릭터 대사 처리에 기여.</div>
+    <div class="project-grid">
+      <div>
+        <div class="project-block-title">Core Features</div>
+        <ul class="compact">
+          <li>paperswithcode, Hugging Face Papers, GitHub 기반 최신 AI 기술 지속 R&D</li>
+          <li>오픈소스 TTS(SparkTTS, OpenAudio S1), Whisper STT 로컬 구현 및 REST API 서빙</li>
+          <li>RVC 학습·추론 GUI — 섭외 성우 보이스를 게임 캐릭터 대사에 적용</li>
+          <li>A100 서버에서 Linux, Docker, Python 기반 GPU 추론 환경 구성·운영</li>
+          <li>HF Spaces 데모 사전 검증 → Hub 모델 다운로드 → 로컬 서빙까지 일관된 도입 프로세스 수립</li>
+        </ul>
+      </div>
+      <div>
+        <div class="project-block-title">Troubleshooting</div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>모델마다 의존성·CUDA 버전이 달라 동일 서버에서 충돌 발생</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>모델별 Docker 컨테이너 분리 구성, GPU 패스스루로 각 컨테이너에서 독립 추론</span></div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>RVC 학습·추론을 CLI로만 사용 가능해 비개발자 팀원이 활용하기 어려웠음</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>Gradio 기반 GUI 래퍼 직접 구현 — 파일 업로드·학습·추론을 웹 인터페이스로 제공</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="project-block-title">Achievements</div>
+    <ul class="compact achievement" style="margin-bottom:4px;">
+      <li>오픈소스 TTS/Whisper 구현으로 성우 섭외 비용 50% 절감</li>
+      <li>RVC GUI 구현으로 게임 캐릭터 대사 처리 비용 30% 절감</li>
+    </ul>
+    <div class="tech-tags">
+      <span class="tech-tag">Python</span><span class="tech-tag">PyTorch</span><span class="tech-tag">SparkTTS</span><span class="tech-tag">OpenAudio S1</span><span class="tech-tag">Whisper</span><span class="tech-tag">RVC</span><span class="tech-tag">Docker</span><span class="tech-tag">Linux (A100)</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- AI Midi Generator -->
+  <div class="project">
+    <div class="project-header">
+      <div>
+        <span class="tag tag-work">Work</span>
+        <span class="project-name">AI Midi Generator</span>
+        <span class="project-sub" style="display:inline; margin-left:6px; font-size:9pt;">— 사운드팀 채보 자동 생성 시스템</span>
+      </div>
+      <span class="project-period">2024.09 - 2025.03</span>
+    </div>
+    <div class="project-overview">오디오 파일에서 Conformer 딥러닝 모델로 리듬게임 채보를 자동 생성하는 웹 기반 AI 시스템. Gradio 기반 웹 UI로 비개발자도 사용 가능하도록 내부 서비스로 배포.</div>
+    <div class="project-grid">
+      <div>
+        <div class="project-block-title">Core Features</div>
+        <ul class="compact">
+          <li>Conformer 아키텍처 기반 커스텀 학습 (레이어 수·드롭아웃 수정, 자체 데이터)</li>
+          <li>오디오 전처리: 리샘플링 → Mel-Spectrogram 변환(128 밴드) → 배치 추론</li>
+          <li>MelBandRoformer 보컬 분리 모델 통합으로 보컬/MR 자동 분리 후 각각 처리</li>
+          <li>4개 게임 모드별 특화 모델 총 7개 학습 및 MIDI/TXT/SLK/XLS 다중 포맷 변환 자동화</li>
+          <li>Docker 컨테이너 기반 GPU 모델 서빙 환경 구성</li>
+          <li>Gradio 기반 웹 GUI — 비개발자도 원클릭으로 채보 생성 가능</li>
+        </ul>
+      </div>
+      <div>
+        <div class="project-block-title">Troubleshooting</div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>단일 파일 순차 처리 방식으로 긴 음원에서 처리 시간이 지나치게 길었음</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>배치 추론 방식으로 전환하여 작업 시간 90% 단축</span></div>
+        </div>
+        <div class="trouble-item">
+          <div class="trouble-row"><span class="badge badge-p">Problem</span><span>학습 데이터 내 보컬/악기 혼재로 모델이 보컬 구간을 노트로 오인식</span></div>
+          <div class="trouble-row"><span class="badge badge-s">Solution</span><span>MelBandRoformer로 보컬 사전 분리 후 데이터 재구성, 레이블 수정으로 정확도 80% 향상</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="project-block-title">Achievements</div>
+    <ul class="compact achievement" style="margin-bottom:4px;">
+      <li>Gradio 기반 GUI 제작으로 기존 수작업 대비 작업 시간 70% 단축</li>
+      <li>데이터 품질 개선으로 모델 정확도 80% 향상</li>
+      <li>배치 처리 전환으로 작업 시간 90% 단축</li>
+    </ul>
+    <div class="tech-tags">
+      <span class="tech-tag">Python</span><span class="tech-tag">PyTorch (CUDA 12.1)</span><span class="tech-tag">Conformer</span><span class="tech-tag">Librosa</span><span class="tech-tag">Gradio</span><span class="tech-tag">Docker</span><span class="tech-tag">NVIDIA Container Toolkit</span>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+
+<!-- ── PAGE 4: Side Projects ── -->
+<div class="page page-break">
+
+  <div class="section-title" style="font-size:13pt; margin-bottom:16px;">Side Projects</div>
+
+  <div class="side-grid">
+
+    <!-- 골프 -->
+    <div class="side-card">
+      <div class="side-card-header">
+        <span class="side-name">골프 플랫폼 사용자 데이터 분석</span>
+        <span class="side-period">2024.04 - 2024.05</span>
+      </div>
+      <div class="side-sub">사용자 행동 패턴 분석 및 시각화</div>
+      <div class="side-overview">골프 플랫폼 사용자 데이터를 수집·분석하여 플레이 패턴, 리뷰 감정, 활동 선호도 등 인사이트를 도출하는 데이터 분석 프로젝트.</div>
+      <ul class="compact" style="margin-bottom:6px;">
+        <li>VADER 감정 분석으로 부정적 리뷰 데이터 시각화</li>
+        <li>워드클라우드를 통한 사용자 리뷰 키워드 분석</li>
+        <li>연도별 일·월별 플레이 횟수 및 칼로리 소모량 시각화</li>
+        <li>사용자 활동 패턴·선호도 기반 프로모션 방향 제안</li>
+      </ul>
+      <div class="side-ach">사용자 활동 패턴 분석을 통해 프로모션·이벤트 기획에 활용 가능한 인사이트 도출</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span><span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">VADER</span><span class="tech-tag">WordCloud</span><span class="tech-tag">NumPy</span>
+      </div>
+    </div>
+
+    <!-- 객체 탐지 -->
+    <div class="side-card">
+      <div class="side-card-header">
+        <span class="side-name">객체 탐지 및 인스턴스 세그멘테이션</span>
+        <span class="side-period">2024.02 - 2024.04</span>
+      </div>
+      <div class="side-sub">COCO 데이터셋 기반 사람 탐지 파이프라인 구현</div>
+      <div class="side-overview">COCO 데이터셋을 이용한 사람 객체 탐지 및 인스턴스 세그멘테이션 전체 파이프라인을 직접 구현한 프로젝트.</div>
+      <ul class="compact" style="margin-bottom:6px;">
+        <li>JSON COCO 어노테이션에서 바운딩 박스·세그멘테이션 정보 추출</li>
+        <li>세그멘테이션 데이터 변환 (RLE → polygon)</li>
+        <li>이진 마스크 디코드 후 OpenCV로 윤곽선 추출 및 데이터 통일</li>
+        <li>리사이즈 시 NEAREST 보간법으로 좌표 비율 문제 해결</li>
+      </ul>
+      <div class="side-ach">COCO 데이터셋 기반 object detection / instance segmentation 전체 파이프라인 직접 구현</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span><span class="tech-tag">OpenCV</span><span class="tech-tag">COCO Dataset</span><span class="tech-tag">NumPy</span><span class="tech-tag">Matplotlib</span>
+      </div>
+    </div>
+
+    <!-- 음악 장르 -->
+    <div class="side-card">
+      <div class="side-card-header">
+        <span class="side-name">음악 장르 분류 모델 개발</span>
+        <span class="side-period">2023.12 - 2024.01</span>
+      </div>
+      <div class="side-sub">오디오 특성 기반 장르 자동 분류</div>
+      <div class="side-overview">오디오 특성(MFCC, 주파수 등)을 추출하고 FNN 앙상블 기법으로 음악 장르를 자동 분류하는 머신러닝 모델 개발 프로젝트.</div>
+      <ul class="compact" style="margin-bottom:6px;">
+        <li>오디오 특성(MFCC, rolloff, bandwidth, centroid 등) 추출</li>
+        <li>장르 간 유사한 주파수 특징에 PCA 적용으로 차원 축소</li>
+        <li>FNN 앙상블 기법으로 모델 정확도 개선</li>
+        <li>하이퍼 파라미터 튜닝으로 최종 정확도 95.13% 달성</li>
+      </ul>
+      <div class="side-ach">FNN 앙상블 적용으로 모델 정확도 90.04% → 95.13% 개선</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span><span class="tech-tag">Librosa</span><span class="tech-tag">scikit-learn</span><span class="tech-tag">NumPy</span><span class="tech-tag">PCA</span><span class="tech-tag">Matplotlib</span>
+      </div>
+    </div>
+
+    <!-- 웹크롤링 -->
+    <div class="side-card">
+      <div class="side-card-header">
+        <span class="side-name">웹크롤링 데이터 시각화</span>
+        <span class="side-period">2023.10 - 2023.11</span>
+      </div>
+      <div class="side-sub">오늘의집 제품 데이터 수집 및 분석</div>
+      <div class="side-overview">오늘의집 사이트에서 제품 데이터를 크롤링하여 카테고리별 가격·리뷰·브랜드 현황을 분석하고 시각화한 프로젝트.</div>
+      <ul class="compact" style="margin-bottom:6px;">
+        <li>카테고리별 제품 이름, 가격, 할인률, 리뷰수, 브랜드 데이터 수집</li>
+        <li>무한 스크롤 동적 페이지 처리 — 스크롤과 데이터 추출 동시 진행</li>
+        <li>소비자 검색 빈도 높은 브랜드 워드클라우드 시각화</li>
+      </ul>
+      <div class="side-ach">무한 스크롤 동적 페이지 크롤링 안정화 및 카테고리별 소비자 트렌드 시각화 완성</div>
+      <div class="tech-tags">
+        <span class="tech-tag">Python</span><span class="tech-tag">Selenium</span><span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span><span class="tech-tag">WordCloud</span>
+      </div>
+    </div>
+
+    <!-- 셔틀버스 -->
+    <div class="side-card" style="grid-column: 1 / -1;">
+      <div class="side-card-header">
+        <span class="side-name">어린이 셔틀버스 위험 모니터링 시스템</span>
+        <span class="side-period">2019.03 - 2019.11</span>
+      </div>
+      <div class="side-sub">IoT 기반 실시간 위험 감지 및 알림</div>
+      <div class="side-overview">라즈베리파이·IoT 센서를 활용해 어린이 셔틀버스 내 위험 상황을 실시간 감지하고 보호자에게 텔레그램으로 알림을 전송하는 시스템. 졸업 논문 프로젝트.</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+        <ul class="compact">
+          <li>모션·소리 감지 센서, 라즈베리파이 웹캠, GPS 연동 설계</li>
+          <li>차영상 기법(Frame Differencing)으로 이상 움직임 감지</li>
+          <li>텔레그램 봇으로 GPS 위치 정보 포함 실시간 알림 전송</li>
+          <li>어린이 심리 안정을 위한 뽀로로 사운드 출력 기능</li>
+        </ul>
+        <div>
+          <div class="side-ach" style="margin-bottom:6px;">졸업 논문 채택 및 IT캡스톤디자인 경진대회 동상 수상</div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span><span class="tech-tag">Raspberry Pi</span><span class="tech-tag">OpenCV</span><span class="tech-tag">Selenium</span><span class="tech-tag">Telegram API</span><span class="tech-tag">IoT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /side-grid -->
+
+</div><!-- /page -->
+
+</body>
+</html>
